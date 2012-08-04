@@ -9,14 +9,14 @@ echo libz.so.4 libz.so.5 > /etc/libmap.conf
 echo libz.so.4 libz.so.5 > ${SUBSONIC_HOME}/etc/libmap.conf
 
 mkdir -p ${SUBSONIC_HOME}/etc/subsonic/home
-pw groupadd www
-pw useradd www -g www -G wheel -s /usr/local/bin/bash -d ${SUBSONIC_HOME}/etc/subsonic/home -w none
+pw groupadd subsonic
+pw useradd subsonic -g subsonic -G wheel -s /usr/local/bin/bash -d ${SUBSONIC_HOME}/etc/subsonic/home -w none
 
 #mkdir -p ${SUBSONIC_HOME}/var/tmp
 #ln -s ${SUBSONIC_HOME}/var/tmp /var/tmp 
 
-chown www:www ${SUBSONIC_HOME}/MEDIA
-chmod 775 ${SUBSONIC_HOME}/MEDIA
+#chown subsonic:subsonic ${SUBSONIC_HOME}/MEDIA
+#chmod 775 ${SUBSONIC_HOME}/MEDIA
 
 # Copy patched RC file over automatically generated one
 #mkdir -p ${SUBSONIC_HOME}/etc/rc.d/

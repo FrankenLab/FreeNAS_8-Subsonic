@@ -21,7 +21,7 @@ command=/usr/pbi/subsonic-$(uname -m)/sbin/subsonicd
 
 load_rc_config $name
 
-subsonic_user=${subsonic_user-"dlna"}
+subsonic_user=${subsonic_user-"subsonic"}
 
 _dirs="/var/db/subsonic /var/log/subsonic"
 
@@ -52,4 +52,4 @@ run_rc_command "$1"
 
 # Hack to write proper pidfile for subsonic
 sleep 2
-pgrep -U dlna -f org.subsonic.MediaServer > /var/run/subsonic.pid
+pgrep -U subsonic -f subsonic> /var/run/subsonic.pid
