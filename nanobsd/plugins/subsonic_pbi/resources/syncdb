@@ -1,0 +1,3 @@
+#!/bin/sh
+
+/usr/pbi/subsonic-amd64/bin/python /usr/pbi/subsonic-amd64/subsonicUI/manage.py syncdb --migrate --noinput

@@ -1,0 +1,55 @@
+#!/bin/sh
+#
+#
+# PROVIDE: subsonic
+# REQUIRE: DAEMON 
+#
+# Add the following lines to /etc/rc.conf to enable this service:
+#
+# subsonic_enable:            Set to NO by default. Set it to YES to enable it.
+#                            a path.
+# subsonic_user:              The user account subsonic daemon runs as
+#
+
+. /etc/rc.subr
+
+name="subsonic"
+rcvar=${name}_enable
+
+pidfile=/var/run/subsonic.pid
+command=/usr/pbi/subsonic-$(uname -m)/sbin/subsonicd
+
+load_rc_config $name
+
+subsonic_user=${subsonic_user-"dlna"}
+
+_dirs="/var/db/subsonic /var/log/subsonic"
+
+start_precmd="mkdir -p $_dirs; chown $subsonic_user $_dirs"
+
+command_args="$subsonic_args &"
+
+subsonic_stop()
+{
+        res=1
+        echo -n 'Stopping subsonic.'
+        if [ -f "${pidfile}" ]
+        then
+                kill -KILL $(cat "${pidfile}")
+                rm -f ${pidfile}
+                res=$?
+        else
+                killall -KILL subsonicd
+                res=$?
+        fi
+
+        echo
+        return ${res}
+}
+
+stop_cmd='subsonic_stop'
+run_rc_command "$1"
+
+# Hack to write proper pidfile for subsonic
+sleep 2
+pgrep -U dlna -f org.subsonic.MediaServer > /var/run/subsonic.pid
