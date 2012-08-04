@@ -19,9 +19,9 @@ chown www:www ${SUBSONIC_HOME}/MEDIA
 chmod 775 ${SUBSONIC_HOME}/MEDIA
 
 # Copy patched RC file over automatically generated one
-mkdir -p ${SUBSONIC_HOME}/etc/rc.d/
+#mkdir -p ${SUBSONIC_HOME}/etc/rc.d/
 chmod 755 ${SUBSONIC_HOME}/subsonic.RC
-mv ${SUBSONIC_HOME}/subsonic.RC ${SUBSONIC_HOME}/etc/rc.d/subsonic
+#mv ${SUBSONIC_HOME}/subsonic.RC ${SUBSONIC_HOME}/etc/rc.d/subsonic
 
 # The following 2 sed commands let Subsonic determine the Jail IP address and add it to the JAVA_OPTS used to start Subsonic
 
@@ -34,6 +34,7 @@ mv ${SUBSONIC_HOME}/subsonic.RC ${SUBSONIC_HOME}/etc/rc.d/subsonic
 #sed -i '' -e "s,exec java,exec ${SUBSONIC_HOME}/bin/java,g" ${SUBSONIC_HOME}/sbin/subsonicd
 
 
+# Check if our hostname or ip address changed. Also make sure another plugin hasn't added it.
 #if [ `grep -c $JAIL_IP /etc/hosts` -eq 0 ]
     echo $JAIL_IP"	"`hostname` >> /etc/hosts
 #fi

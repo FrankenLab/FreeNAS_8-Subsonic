@@ -46,7 +46,7 @@ export PLUGINPORTSDIR
 #
 # Path to port directory
 #
-PLUGINPORT="${PLUGINPORTSDIR}/net/subsonic"
+PLUGINPORT="${PLUGINPORTSDIR}/www/subsonic"
 if [ ! -d "${PLUGINPORT}" ]
 then
 	echo "${PLUGIN}: ${PLUGINPORT} does not exist!"
