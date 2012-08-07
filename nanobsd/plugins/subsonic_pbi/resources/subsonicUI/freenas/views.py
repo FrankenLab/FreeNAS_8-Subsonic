@@ -323,7 +323,7 @@ def status(request):
     """
     pid = None
 
-    proc = Popen(["/usr/bin/pgrep", "-U", "www", "-F", "/var/run/subsonic.pid"], stdout=PIPE, stderr=PIPE)
+    proc = Popen(["/usr/bin/pgrep", "-U", "www", "-F", "/var/run/tomcat60.pid"], stdout=PIPE, stderr=PIPE)
 
     stdout = proc.communicate()[0]
 
