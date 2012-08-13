@@ -22,7 +22,8 @@ cp ${SUBSONIC_HOME}/etc/rc.d/ffserver /usr/local/etc/rc.d/
 cp ${SUBSONIC_HOME}/etc/rc.d/ffserver /etc/rc.d/
 cp ${SUBSONIC_HOME}/etc/rc.d/tomcat6 /usr/local/etc/rc.d/
 
-ln -s ${SUBSONIC_HOME}/bin/lame /var/subsonic/transcode/
+ln -sf ${SUBSONIC_HOME}/bin/lame /var/subsonic/transcode/lame
+ln -sf ${SUBSONIC_HOME}/bin/ffmpeg ${SUBSONIC_HOME}/transcode/ffmpeg
 
 mkdir -p ${SUBSONIC_HOME}/MEDIA
 chown www:www ${SUBSONIC_HOME}/MEDIA
