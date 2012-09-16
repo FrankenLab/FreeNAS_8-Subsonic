@@ -24,6 +24,7 @@ cp ${SUBSONIC_HOME}/etc/rc.d/tomcat6 /usr/local/etc/rc.d/
 
 ln -sf ${SUBSONIC_HOME}/bin/lame /var/subsonic/transcode/lame
 ln -sf ${SUBSONIC_HOME}/bin/ffmpeg ${SUBSONIC_HOME}/transcode/ffmpeg
+ln -sf ${SUBSONIC_HOME}/bin/rtmpdump ${SUBSONIC_HOME}/transcode/rtmpdump
 ldconfig -m ${SUBSONIC_HOME}/lib
 
 mkdir -p ${SUBSONIC_HOME}/MEDIA
