@@ -24,7 +24,7 @@ cp ${SUBSONIC_HOME}/etc/rc.d/ffserver /etc/rc.d/
 cp ${SUBSONIC_HOME}/etc/rc.d/tomcat6 /usr/local/etc/rc.d/
 ln -sf ${SUBSONIC_HOME}/etc/rc.d/tomcat6 /usr/local/etc/rc.d/
 #/usr/pbi/subsonic-amd64/etc/rc.d
-mv ${SUBSONIC_HOME}/subsonic_47.war ${SUBSONIC_HOME}/apache-tomcat-6.0/webapps/subsonic.war
+#mv ${SUBSONIC_HOME}/subsonic_47.war ${SUBSONIC_HOME}/apache-tomcat-6.0/webapps/subsonic.war
 
 ln -sf ${SUBSONIC_HOME}/bin/lame /var/subsonic/transcode/lame
 ln -sf ${SUBSONIC_HOME}/bin/lame /var/subsonic/transcode/
