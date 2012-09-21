@@ -16,7 +16,8 @@ chown -R www:www /var/music
 chown -R www:www /var/playlists
 chown www:www ${SUBSONIC_HOME}/apache-tomcat-6.0/webapps/subsonic.war
 
-echo "tomcat60_java_opts="-Djava.awt.headless=true -Djava.net.preferIPv4Stack=true" >> /etc/rc.conf
+# Script seems to break at this line, commenting out for now. (See typo now, unequal double-quotes)
+#echo "tomcat60_java_opts="-Djava.awt.headless=true -Djava.net.preferIPv4Stack=true" >> /etc/rc.conf
 
 cp ${SUBSONIC_HOME}/etc/rc.d/ffserver /usr/local/etc/rc.d/
 cp ${SUBSONIC_HOME}/etc/rc.d/ffserver /etc/rc.d/
@@ -25,8 +26,11 @@ ln -sf ${SUBSONIC_HOME}/etc/rc.d/tomcat6 /usr/local/etc/rc.d/
 #/usr/pbi/subsonic-amd64/etc/rc.d
 
 ln -sf ${SUBSONIC_HOME}/bin/lame /var/subsonic/transcode/lame
-ln -sf ${SUBSONIC_HOME}/bin/ffmpeg ${SUBSONIC_HOME}/transcode/ffmpeg
-ln -sf ${SUBSONIC_HOME}/bin/rtmpdump ${SUBSONIC_HOME}/transcode/rtmpdump
+ln -sf ${SUBSONIC_HOME}/bin/lame /var/subsonic/transcode/
+ln -sf ${SUBSONIC_HOME}/bin/ffmpeg /var/subsonic/transcode/ffmpeg
+ln -sf ${SUBSONIC_HOME}/bin/ffmpeg /var/subsonic/transcode/
+ln -sf ${SUBSONIC_HOME}/bin/rtmpdump /var/subsonic/transcode/rtmpdump
+ln -sf ${SUBSONIC_HOME}/bin/rtmpdump /var/subsonic/transcode/
 ldconfig -m ${SUBSONIC_HOME}/lib
 
 mkdir -p ${SUBSONIC_HOME}/MEDIA
